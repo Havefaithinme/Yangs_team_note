@@ -4,4 +4,28 @@
 # 첫 줄에 n (1 ≤ n ≤ 100,000)이 주어진다. 둘째 줄부터 n개의 줄에는 수열을 이루는 1이상 n이하의 정수가 하나씩 순서대로 주어진다. 물론 같은 정수가 두 번 나오는 일은 없다.
 import sys
 if __name__ == "__main__":
-    pass
+    N = int(sys.stdin.readline())
+    initial_seq = []
+    for _ in range(N):
+        initial_seq.append(int(sys.stdin.readline()))
+
+    def is_valid_seq(initial_seq):
+        current = 0
+        temp = []
+        initial_seq_duplicate = []
+        res = []
+        for i, target in enumerate(initial_seq):
+            while current < target:
+                current += 1
+                temp.append(current)
+                res.append("+")
+            if target <= current:
+                popped = temp.pop()
+                initial_seq_duplicate.append(popped)
+                if popped != target:
+                    return ["NO"]
+                res.append("-")
+        return res
+    res = is_valid_seq(initial_seq)
+    for sign in res:
+        print(sign)
