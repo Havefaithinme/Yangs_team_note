@@ -20,16 +20,12 @@ if __name__ == "__main__":
     current = 0
     for _ in range(N):
         temp = []
-        while len(temp) < 3:
+        while len(temp) < K:
             if circle[current] != None:
                 temp.append(circle[current])
-            if len(temp) == 3:
+            if len(temp) == K:
                 res.append(circle[current])
                 circle[current] = None
             current = (current + 1) % N
 
-            logger.info("*"*30)
-            logger.info(f"temp   : {temp} ")
-            logger.info(f"current: {current}")
-            logger.info(f"circle : {circle}")
     print(res)
