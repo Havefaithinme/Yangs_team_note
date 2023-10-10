@@ -66,3 +66,31 @@ def rot13():
     else:
       continue
   print(str)
+
+
+# 네 자연수 A, B, C, D가 주어진다. 이때, A와 B를 붙인 수와 C와 D를 붙인 수의 합을 구하는 프로그램을 작성하시오.
+
+# 두 수 A와 B를 합치는 것은 A의 뒤에 B를 붙이는 것을 의미한다. 즉, 20과 30을 붙이면 2030이 된다.
+
+def merge_add():
+  nums = input().split(" ")
+  print(int(f"{''.join(nums[0:2])}") + int(f"{''.join(nums[2:])}"))
+  
+  
+  
+# 접미사 배열은 문자열 S의 모든 접미사를 사전순으로 정렬해 놓은 배열이다.
+
+# baekjoon의 접미사는 baekjoon, aekjoon, ekjoon, kjoon, joon, oon, on, n 으로 총 8가지가 있고, 이를 사전순으로 정렬하면, aekjoon, baekjoon, ekjoon, joon, kjoon, n, on, oon이 된다.
+
+# 문자열 S가 주어졌을 때, 모든 접미사를 사전순으로 정렬한 다음 출력하는 프로그램을 작성하시오.
+
+def postfixes():
+  strs = input()
+  ans = []
+  i = 0
+  while i < len(strs):
+    ans.append(strs[i:])
+    i += 1
+  ans.sort()
+  for postfix in ans:
+    print(postfix)
